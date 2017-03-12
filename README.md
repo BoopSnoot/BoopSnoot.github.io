@@ -1,2 +1,2 @@
 # Repository de la Dime
-This repository is an educational, basically. Me learning HTML and git.
+Just me making a site for my awesome findings, also learning HTML and git.
