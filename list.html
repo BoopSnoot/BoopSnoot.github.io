@@ -4,36 +4,44 @@
 		<title>List of Schtuff</title>
 		<meta charset="UTF-8">
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" href="w3(dimeedit).css">
+		<link rel="stylesheet" href="w3.css">
 	</head>
 	<style>
 		@font-face {font-family:ubuntu;src:url(font.ttf);}
-		body {font-family:ubuntu;}
-		.header {background-color:#ffeb3b;}
-		h1 {text-align:center;color:#000000;padding-top:16px;}
+		body {font-family:ubuntu;background-color:#f5f5f5}
+		h1 {text-align:center;padding-top:16px;}
 		h2 {color:rgb(0,0,0);}
 		p {color:rgb(10,10,10);}
-		ul {list-style-type:none;overflow:hidden;margin:0;padding:0;background-color:#ffeb3b;}
+		ul {list-style-type:none;overflow:hidden;margin:0;padding:0;}
 		li {float:left;}
-		li a {display:block;color:#000000;background-color:#ffeb3b;text-align:center;padding:16px;text-decoration:none;}
-		li a:hover {display:block;color:#000000;background-color:#ff9800;text-align:center;padding:16px;text-decoration:none;}
+		li a {display:block;text-align:center;padding:16px;text-decoration:none;}
+		li a:hover {display:block;text-align:center;padding:16px;text-decoration:none;}
 	</style>
 	<body>
-		<div class="header">
+<!Top Menu>
+		<header class="w3-card-2 w3-yellow">
 			<h1>La Repository De La Dime</h1>
 			<ul>
-				<li><a href="index.html" title="Go Home">Home</a></li>
-				<li><a href="#list" title="View Program List" style="background-color:#f44336">Programs</a></li>
-				<li><a href="<!about.html>" title="About Me">About</a></li>
-				<li><a href="https://github.com/Dminin2001/">Github</a></li>
+				<li class="w3-hover-orange"><a href="index.html" title="Go Home">Home</a></li>
+				<li class="w3-red"><a href="list.html" title="View Program List">Programs</a></li>
+				<li class="w3-hover-orange"><a href="about.html" title="About Me">About</a></li>
+				<li class="w3-hover-orange"><a href="https://github.com/Dminin2001/">Github</a></li>
 			</ul>
-		</div>
-		<div>
-			
+		</header>
+<!Main Part>
+		<div class="w3-card-2 w3-margin">
+			<div class="w3-container w3-blue">
+				<h2>Quick delete</h2>
+			</div>
+			<div class="w3-container w3-white">
+				<p>This command allows you to delete folders with lots of items much faster then with usual DEL button:</p>
+			<div class="w3-lightgray w3-leftbar w3-border-top w3-border-bottom w3-border-right"><code>del /f/s/q "your directory"<br>rmdir /s/q "your directory"</code></div>
+				<p>Here is a little bat file to make it more simple: <a href="tools/Quick Delete.bat"><img src="bat-file-2.png" title="Download it" alt="Download it" width="32" height="32"></a>
+			</div>
 		</div>
 		<hr>
 		<b style="float:left;font-size:20px;">Be Fabulous!</b>
 		<h4 style="text-align:right">Kindly hosted by GitHub</h4>
-		<a href="https://github.com"><img title="Visit GitHub" src="pBeeJQDQ.png" alt="GitHub" style="width:50px;height:50px;float:right"></a>
+		<a href="https://github.com"><img title="Visit GitHub" src="github.png" alt="GitHub" style="width:50px;height:50px;float:right"></a>
 	</body>
 </html>
