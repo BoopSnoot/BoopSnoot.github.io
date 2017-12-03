@@ -1,0 +1,13 @@
+{
+  "homepage": "https://dminin2001.github.io",
+  "1.12.2": {
+    "0.0.1": "I dun made it", 
+	...
+  },
+  ...
+  "promos": {
+    "1.12.2-latest": "0.0.1",
+    "1.12.2-recommended": "0.0.1",
+    ...
+  }
+}
