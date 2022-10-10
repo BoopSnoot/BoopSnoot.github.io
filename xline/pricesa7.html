@@ -76,6 +76,7 @@
       codes_submit.addEventListener("click", ev => {
         let code_list = codes_input.value.split(",");
         for (let code of code_list) {
+          if (!/^([0-9]{1,4})$/.test(code)) continue;
           let wrap = document.createElement("p");
           wrap.classList.add("wrap-21");
 
