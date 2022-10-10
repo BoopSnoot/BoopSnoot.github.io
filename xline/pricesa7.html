@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>A7 Prices | Xline</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+
+      @media print {
+        .noPrint {
+          display: none;
+        }
+      }
+
+      p {
+        page-break-inside: avoid;
+      }
+
+      .wrap-21 {
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        float: left;
+        margin: 12px;
+      }
+      .wrap-21 div:not(:last-child) {
+        margin-right: 2rem;
+      }
+      .wrap-21 .item-21 {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: #0a0006;
+        width: 7.4cm;
+        height: 10.5cm;
+        padding-right: 5px;
+      }
+
+      .wrap-21 .code {
+        position: absolute;
+        bottom: 0;
+        right: 5px;
+        font-size: 0.4cm;
+      }
+      .wrap-21 .price {
+        font-size: 0.8cm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="noPrint">
+      <input type="text" id="codes_input" style="width: 100%; margin-bottom: 8px" />
+      <button id="codes_submit">Load</button>
+      <button id="codes_reset">Reset</button>
+    </div>
+    <div class="col-sm-12 div-table-content" id="container"></div>
+    <script>
+      let codes_input = document.getElementById("codes_input");
+      let codes_submit = document.getElementById("codes_submit");
+      let codes_reset = document.getElementById("codes_reset");
+      let container = document.getElementById("container");
+
+      codes_reset.addEventListener("click", ev => {
+        container.innerHTML = "";
+      });
+
+      codes_submit.addEventListener("click", ev => {
+        let code_list = codes_input.value.split(",");
+        for (let code of code_list) {
+          let wrap = document.createElement("p");
+          wrap.classList.add("wrap-21");
+
+          let image = document.createElement("img");
+          image.src = "./a7prices/" + code + ".png";
+          image.classList.add("item-21");
+          wrap.appendChild(image);
+
+          container.appendChild(wrap);
+        }
+      });
+    </script>
+  </body>
+</html>
