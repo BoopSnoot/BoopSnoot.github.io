@@ -19,19 +19,20 @@ function removeContainer(containerId) {
 function getProductsPrices(codes) {
   for (let code of codes.split(",")) {
     if (!/^([0-9]{1,4})$/.test(code)) continue;
-    fetch(`https://xlineparts.com/product/${code}/a`, {mode: 'no-cors'}).then(r =>
+    fetch(`https://xlineparts.com/product/${code}/a`).then(r =>
       r.text().then(webpage => {
         try {
-          console.log(webpage);
           let price = webpage.match(/(?<=(<span class="price">\s{0,}))[\S]+(?=€(\s{0,})<\/span>)/)[0].trim();
           let containerId = createContainer();
 
           populateLabel(price, code, containerId);
         } catch (e) {
-          console.error(e);
+          document.body.innerHTML = "<h1 style=\"color: red\">please install <a href=\"https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/\">Access Control-Allow-Origin - Unblock<\/a><\/h1>";
         }
       })
-    );
+    ).catch(err => {
+      document.body.innerHTML = "<h1 style=\"color: red\">please install <a href=\"https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/\">Access Control-Allow-Origin - Unblock<\/a><\/h1>";
+    });
   }
 }
 
