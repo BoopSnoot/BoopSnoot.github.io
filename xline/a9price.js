@@ -19,7 +19,7 @@ function removeContainer(containerId) {
 function getProductsPrices(codes) {
   for (let code of codes.split(",")) {
     if (!/^([0-9]{1,4})$/.test(code)) continue;
-    fetch(`https://xlineparts.com/product/${code}/a`).then(r =>
+    fetch(`https://xlineparts.com/product/${code}/a`, {mode: 'no-cors'}).then(r =>
       r.text().then(webpage => {
         try {
           console.log(webpage);
