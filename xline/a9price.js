@@ -27,7 +27,10 @@ function getProductsPrices(codes) {
 
           populateLabel(price, code, containerId);
         } catch (e) {
-          document.body.innerHTML = "<h1 style=\"color: red\">please install <a href=\"https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino/\">Access Control-Allow-Origin - Unblock<\/a><\/h1>";
+          let price = "err";
+          let containerId = createContainer();
+
+          populateLabel(price, code, containerId);
         }
       })
     ).catch(err => {
