@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap");
+
+      @media print {
+        .no-print {
+          display: none;
+        }
+        div {page-break-inside: avoid;}
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+      .disclaimer {
+        color: red;
+        text-align: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+        padding: 8px;
+      }
+
+      .wrap {
+        font-family: "Open Sans", sans-serif;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 12px;
+        font-size: 0.9rem;
+        float: left;
+        position: relative;
+        cursor: pointer;
+      }
+
+      /* Tooltip text */
+      .wrap .tooltiptext {
+        visibility: hidden;
+        position: absolute;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        padding: 5px 0;
+        border-radius: 6px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+        top: 95%;
+        left: 50%;
+        margin-left: -60px;
+      }
+
+      /* Tooltip arrow */
+      .wrap .tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent #555 transparent;
+      }
+
+      /* Show the tooltip text when you mouse over the tooltip container */
+      .wrap:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .wrap .label-bg {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        background-image: url("a7bg.png");
+        background-position: center;
+        background-size: 100% 100%;
+        color: #0a0006;
+        width: 7.4cm;
+        height: 10.5cm;
+        justify-content: center;
+      }
+
+      .wrap .label-fgbg {
+        width: 7cm;
+        height: 10cm;
+      }
+
+      .wrap .model {
+        text-align: center;
+        margin: 10px 0px;
+        width: 100%;
+      }
+
+      .wrap .detail {
+        border-top: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .wrap .detail-title {
+        border-right: 1px solid black;
+        padding-left: 4px;
+        flex: 3;
+        font-weight: 700;
+      }
+
+      .wrap .detail-text {
+        padding-left: 4px;
+        flex: 4;
+        text-overflow: clip;
+        overflow: hidden;
+      }
+
+      .wrap div {
+        margin: 0px;
+      }
+      .wrap p {
+        margin: 0px;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        width: 100%;
+        text-overflow: clip;
+        overflow: hidden;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
+        flex-wrap: nowrap;
+        text-overflow: clip;
+        overflow: hidden;
+      }
+
+      .price-container {
+        border-bottom: 1px solid black;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .lds-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+      }
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-ring {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+
+      .wrap-21 {
+          font-family: "Open Sans", sans-serif;
+          font-weight: bold;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          float: left;
+          margin: 12px;
+        }
+        .wrap div:not(:last-child) {
+          margin-right: 2rem;
+        }
+        .wrap .item {
+          position: relative;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: end;
+          -ms-flex-pack: end;
+          justify-content: flex-end;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          background-color: #ffd302;
+          color: #0a0006;
+          width: 4cm;
+          height: 5.5cm;
+          padding-right: 5px;
+        }
+
+        .wrap .code {
+          position: absolute;
+          bottom: 0;
+          right: 5px;
+          font-size: 0.4cm;
+        }
+        .wrap .price {
+          font-size: 0.8cm;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="no-print">
+      <input placeholder="Code" type="text" id="code-text" />
+      <button id="search-button">Add</button>
+      <button onclick="window.print()">Print</button>
+    </div>
+    <div class="col-sm-12 div-table-content">
+    </div>
+    <div class="wrap hidden" id="template">
+      <div class="item">
+        <p class="price"></p>
+        <small class="code"></small>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
+    <script src="./a9price.js"></script>
+    <script>
+      $("#search-button").on("click", ev => {
+        getProductsPrices($("#code-text").val());
+      });
+    </script>
+  </body>
+</html>
